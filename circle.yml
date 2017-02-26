@@ -37,4 +37,5 @@ deployment:
   prod:
     branch: master
     commands:
+      - chmod +x ./deploy.sh
       - ./deploy.sh
