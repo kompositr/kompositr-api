@@ -29,7 +29,8 @@ dependencies:
 
 test:
   post:
-    - docker run -d -p 3000:3000 us.gcr.io/${PROJECT_NAME}/kompositr-api:$CIRCLE_SHA1; sleep 10
+    - docker run -d -p 3000:3000 us.gcr.io/${PROJECT_NAME}/kompositr-api:$CIRCLE_SHA1
+    - sleep 15
     - curl -i http://localhost:3000
 
 deployment:
