@@ -1,6 +1,6 @@
 {
   "name": "kompositr-api",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "dependencies": {
     "hapi": "^16.1.0",
