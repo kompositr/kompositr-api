@@ -1,4 +1,4 @@
-FROM node:4
+FROM node:6.10.0
 
 # Install app dependencies
 COPY package.json package.json
