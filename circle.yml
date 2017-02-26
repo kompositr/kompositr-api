@@ -25,7 +25,7 @@ dependencies:
     - sudo /opt/google-cloud-sdk/bin/gcloud --quiet container clusters get-credentials $CLUSTER_NAME
     - docker build -t us.gcr.io/${PROJECT_NAME}/kompositr-api:$CIRCLE_SHA1 .
     # Using a separate tag command until Docker 1.10 is available on CircleCI, then we can use two tags in the build command above
-    - docker tag us.gcr.io/${PROJECT_NAME}/hello:$CIRCLE_SHA1 us.gcr.io/${PROJECT_NAME}/kompositr-api:latest
+    - docker tag us.gcr.io/${PROJECT_NAME}/kompositr-api:$CIRCLE_SHA1 us.gcr.io/${PROJECT_NAME}/kompositr-api:latest
 
 test:
   post:
