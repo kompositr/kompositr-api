@@ -1,5 +1,7 @@
 FROM node:6.10.0
-COPY . .
+COPY . /app
+WORKDIR /app
 RUN npm install
+PORT 3000
 EXPOSE 3000
-CMD [ "npm", "start", "-s"]
+CMD [ "npm", "start"]
