@@ -3,4 +3,4 @@ COPY . /app
 WORKDIR /app
 RUN npm install && npm ls
 EXPOSE 3000
-CMD [ "node", "app.js"]
+CMD [ "npm", "start"]
