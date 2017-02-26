@@ -1,11 +1,5 @@
 FROM node:6.10.0
-
-# Install app dependencies
-COPY package.json package.json
-RUN npm install
-
-# Bundle app source
 COPY . .
-
+RUN npm install
 EXPOSE 3000
 CMD [ "npm", "start", "-s"]
