@@ -1,0 +1,9 @@
+{
+  "name": "kompositr-api",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "hapi": "^16.1.0",
+    "inert": "^4.1.0"
+  }
+}
