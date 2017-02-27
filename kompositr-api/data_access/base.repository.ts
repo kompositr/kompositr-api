@@ -1,6 +1,7 @@
 import * as q from "bluebird"
 import * as google from "@google-cloud/datastore"
 import IDatastore = datastore.IDatastore;
+import {Komposition} from "../model/komposition"
 
 export class BaseRepository {
     public ds: IDatastore
@@ -34,7 +35,7 @@ export module datastore {
 
     export interface IEntityInstrumentedData {
         name: string;
-        value: string | number | boolean | IInt | IDouble | Date | Buffer | any[];
+        value: string | number | boolean | IInt | IDouble | Date | any[];
         excludeFromIndexes?: boolean
     }
 
@@ -59,6 +60,11 @@ export module datastore {
         dataset(options?: IDatasetOptions): IDataset;
         createQuery(key: string);
         createQuery(keys: string[]);
+        key(kind: string): IKey;
+        key(key: Object[]): IKey;
+        runQueryAsync(q: IQuery)
+        getAsync(key: IKey)
+        saveAsync(entity: IEntity<Komposition>)
     }
 
 
@@ -84,7 +90,7 @@ export module datastore {
         /** Retrieve the entities identified with the specified key(s) in the current transaction. Get operations require a valid key to retrieve the key-identified entity from Datastore. */
         get<TEntityData>(key: IKey, callback: (err: any, entity: IEntity<TEntityData>) => void);
         get<TEntityData>(keys: IKey[], callback: (err: any, entities: IEntity<TEntityData>[]) => void);
-        get<TEntityData>(key: IKey): IStream<IEntity<TEntityData>>;
+        // get<TEntityData>(key: IKey): IStream<IEntity<TEntityData>>;
 
 
         /** Datastore allows you to query entities by kind, filter them by property filters, and sort them by a property name. Projection and pagination are also supported.
@@ -93,7 +99,7 @@ export module datastore {
 
          You may also omit the callback to this function to trigger streaming mode. */
         runQuery<TEntityData>(q: IQuery, callback: (err: any, entities: IEntity<TEntityData>[], nextQuery: IQuery, apiResponse: any) => void);
-        runQuery<TEntityData>(q: IQuery): IStream<IEntity<TEntityData>>;
+        // runQuery<TEntityData>(q: IQuery): IStream<IEntity<TEntityData>>;
 
     }
     export interface IDataset extends ICoreConnection {
@@ -149,12 +155,12 @@ export module datastore {
         <TEntityData>(entity: IEntity<TEntityData> | IEntity<TEntityData>[]);
     }
 
-    export interface IStream<TData> extends NodeJS.ReadableStream {
-        on(event: "error", callback: (err) => void);
-        on(event: "data", callback: (data: TData) => void);
-        on(event: "end", callback: () => void);
-        on(event: string, callback: Function);
-    }
+    // export interface IStream<TData> extends NodeJS.ReadableStream {
+    //     on(event: "error", callback: (err) => void);
+    //     on(event: "data", callback: (data: TData) => void);
+    //     on(event: "end", callback: () => void);
+    //     on(event: string, callback: Function);
+    // }
 
     export interface IDouble { }
     export interface IInt { }

@@ -1,17 +1,19 @@
 import {BaseRepository, datastore} from "./base.repository";
+import {Komposition} from "../model/komposition"
+
 import IEntity = datastore.IEntity;
 import * as Promise from "bluebird"
-import * as Moment from "moment"
+import * as moment from "moment"
 
 export class KompositionRespository extends BaseRepository {
 
     read(id) {
         const key = this.ds.key([this.kind, parseInt(id, 10)]);
-        let start = new Moment();
+        let start = moment();
         return this.ds.getAsync(key)
             .then((entity, err) => {
                 if (err) throw err;
-                let timeMs = Moment.duration(Moment().diff(start)).asMilliseconds();
+                let timeMs = moment.duration(moment().diff(start)).asMilliseconds();
                 console.log("duration: " + timeMs);
                 return entity
             });
@@ -43,17 +45,17 @@ export class KompositionRespository extends BaseRepository {
     }
 
 
-    create(data): Promise {
-        return update(null, data);
+    create(data: Komposition): Promise {
+        return this.update(null, data);
     }
 
 
-    update(id, data): Promise {
+    update(id: string, data: Komposition): Promise {
         let key;
         if (id)
-            key = this.ds.key([kind, parseInt(id, 10)]);
+            key = this.ds.key([this.kind, parseInt(id, 10)]);
         else
-            key = this.ds.key(kind);
+            key = this.ds.key(this.kind);
 
         const entity = {
             key: key,
