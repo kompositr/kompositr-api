@@ -12,6 +12,7 @@ general:
 
 dependencies:
   pre:
+    - npm install
     - npm install -g typescript
     - tsc
     - sudo /opt/google-cloud-sdk/bin/gcloud --quiet components update
