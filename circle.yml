@@ -15,9 +15,7 @@ general:
 dependencies:
   pre:
     - npm install -g typescript
-    - dir *.ts /b /s > ts-files.txt
-    - tsc @ts-files.txt
-    - del ts-files.txt
+    - tsc
     - sudo /opt/google-cloud-sdk/bin/gcloud --quiet components update
     - sudo /opt/google-cloud-sdk/bin/gcloud --quiet components update kubectl
     - echo $GCLOUD_SERVICE_KEY  | base64 --decode -i > ${HOME}/account-auth.json
