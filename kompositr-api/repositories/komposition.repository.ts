@@ -1,11 +1,12 @@
-import {BaseRepository, datastore} from "./base.repository";
-import {Komposition} from "../model/komposition"
+import { BaseRepository, datastore } from "./base.repository";
+import { Komposition } from "../model/komposition"
 
 import IEntity = datastore.IEntity;
 import * as Promise from "bluebird"
 import * as moment from "moment"
 
 export class KompositionRespository extends BaseRepository {
+    readonly kind: string = 'Komposition';
 
     read(id) {
         const key = this.ds.key([this.kind, parseInt(id, 10)]);
@@ -33,7 +34,6 @@ export class KompositionRespository extends BaseRepository {
     }
 
     list(): Promise {
-
         const q = this.ds.createQuery([this.kind])
             .order('name');
 
@@ -44,11 +44,9 @@ export class KompositionRespository extends BaseRepository {
             });
     }
 
-
     create(data: Komposition): Promise {
         return this.update(null, data);
     }
-
 
     update(id: string, data: Komposition): Promise {
         let key;
