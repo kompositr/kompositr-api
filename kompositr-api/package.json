@@ -6,7 +6,10 @@
     "start": "node app.js"
   },
   "dependencies": {
+    "@google-cloud/datastore": "^0.7.0",
+    "bluebird": "^3.4.7",
     "hapi": "^16.1.0",
-    "inert": "^4.1.0"
+    "inert": "^4.1.0",
+    "typescript": "^2.2.1"
   }
 }
