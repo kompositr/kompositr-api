@@ -1,15 +1,17 @@
 'use strict';
 
-const Hapi = require('hapi');
+import * as hapi from "hapi";
+import * as inert from "inert";
 
-const server = new Hapi.Server();
+const server = new hapi.Server();
+
 server.connection({ port: 8080 });
 
 server.route({
     method: 'GET',
     path: '/',
     handler: function (request, reply) {
-        reply('Hello, world!');
+        reply('Hello, worldzz!');
     }
 });
 
@@ -28,7 +30,7 @@ server.start((err) => {
     console.log(`Server running at: ${server.info.uri}`);
 });
 
-server.register(require('inert'), (err) => {
+server.register(inert, (err) => {
 
     if (err) {
         throw err;
