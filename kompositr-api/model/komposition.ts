@@ -1,3 +1,3 @@
 class Komposition {
-    constructor(private type: string, private command: string ) {}
+    constructor(private id: string, private name: string, private type: string, private command: string ) {}
 }
