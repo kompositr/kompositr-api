@@ -1,5 +1,5 @@
 'use strict';
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 var hapi = require("hapi");
 var inert = require("inert");
 var server = new hapi.Server();
@@ -8,7 +8,7 @@ server.route({
     method: 'GET',
     path: '/',
     handler: function (request, reply) {
-        reply('Hello, world!');
+        reply('Hello, worldzz!');
     }
 });
 server.route({
