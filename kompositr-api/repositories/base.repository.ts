@@ -1,7 +1,7 @@
 import * as q from "bluebird"
 import * as google from "@google-cloud/datastore"
 import IDatastore = datastore.IDatastore;
-import {Komposition} from "../model/komposition"
+import {Komposition} from "../entities/komposition"
 
 export class BaseRepository {
     public ds: IDatastore

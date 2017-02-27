@@ -1,5 +1,5 @@
 import { BaseRepository, datastore } from "./base.repository";
-import { Komposition } from "../model/komposition"
+import { Komposition } from "../entities/komposition"
 
 import IEntity = datastore.IEntity;
 import * as Promise from "bluebird"
