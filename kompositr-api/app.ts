@@ -1,9 +1,12 @@
 'use strict';
-exports.__esModule = true;
-var hapi = require("hapi");
-var inert = require("inert");
-var server = new hapi.Server();
+
+import * as hapi from "hapi";
+import * as inert from "inert";
+
+const server = new hapi.Server();
+
 server.connection({ port: 8080 });
+
 server.route({
     method: 'GET',
     path: '/',
@@ -11,6 +14,7 @@ server.route({
         reply('Hello, world!');
     }
 });
+
 server.route({
     method: 'GET',
     path: '/{name}',
@@ -18,16 +22,20 @@ server.route({
         reply('Hello, ' + encodeURIComponent(request.params.name) + '!');
     }
 });
-server.start(function (err) {
+
+server.start((err) => {
     if (err) {
         throw err;
     }
-    console.log("Server running at: " + server.info.uri);
+    console.log(`Server running at: ${server.info.uri}`);
 });
-server.register(inert, function (err) {
+
+server.register(inert, (err) => {
+
     if (err) {
         throw err;
     }
+
     server.route({
         method: 'GET',
         path: '/hello',
@@ -36,3 +44,4 @@ server.register(inert, function (err) {
         }
     });
 });
+
