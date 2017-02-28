@@ -14,4 +14,4 @@ In order for the api to interact with GCE's Datastore document db, you must auth
     gcloud auth application-default login
 
 3. You're all set! you can run the app and test google api integrations.
-4. ??
+4. ???
