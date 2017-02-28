@@ -1,0 +1,18 @@
+{
+  "name": "kompositr-api",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "@google-cloud/datastore": "^0.7.0",
+    "bluebird": "^3.4.7",
+    "hapi": "^16.1.0",
+    "inert": "^4.1.0",
+    "jshint": "^2.9.4",
+    "moment": "^2.17.1",
+    "typescript": "^2.2.1",
+    "typings": "^2.1.0"
+  }
+}
