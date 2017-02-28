@@ -1,4 +1,5 @@
-import { BaseRepository, datastore } from "./base.repository";
+import { BaseRepository } from "./base.repository";
+import { datastore } from "../entities/datastore"
 import { Komposition } from "../entities/komposition"
 
 import IEntity = datastore.IEntity;
@@ -6,7 +7,6 @@ import * as Promise from "bluebird"
 import * as moment from "moment"
 
 export class KompositionRespository extends BaseRepository {
-    readonly kind: string = 'Komposition';
 
     read(id) {
         const key = this.ds.key([this.kind, parseInt(id, 10)]);

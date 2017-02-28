@@ -1,19 +1,3 @@
-import * as q from "bluebird"
-import * as google from "@google-cloud/datastore"
-import IDatastore = datastore.IDatastore;
-import {Komposition} from "../entities/komposition"
-
-export class BaseRepository {
-    public ds: IDatastore
-    readonly kind: string = 'Komposition';
-    constructor() {
-        var ds = q.promisifyAll(google({
-            projectId: 'kompositr'
-        }));
-        this.ds = ds;
-    }
-}
-
 
 export interface IModuleImport {
     (authOptions?: IAuthOptions): IGCloud;
@@ -53,7 +37,8 @@ export module datastore {
         ///** Data to save with the provided key. If you provide an array of objects, you must use the explicit syntax: name for the name of the property and value for its value. You may also specify an excludeFromIndexes property, set to true or false. */
         //data: TData | { name: string; value: string; excludeFromIndexes?: boolean }[],
     }
-
+    export interface TData {}
+    
     export interface IDatastore {
         double(num: number): IDouble;
         int(num: number): IInt;
@@ -64,7 +49,7 @@ export module datastore {
         key(key: Object[]): IKey;
         runQueryAsync(q: IQuery)
         getAsync(key: IKey)
-        saveAsync(entity: IEntity<Komposition>)
+        saveAsync(entity: IEntity<TData>)
     }
 
 

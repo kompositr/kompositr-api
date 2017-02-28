@@ -9,9 +9,6 @@ machine:
   node:
     version: 6.10.0
 
-general:
-  build_dir: kompositr-api
-
 dependencies:
   pre:
     - npm install
