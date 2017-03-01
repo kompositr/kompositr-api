@@ -1,7 +1,8 @@
-'use strict';
+"use strict";
 
 import * as hapi from "hapi";
-import {KompositionRoutes} from "./routes/komposition.routes"
+// import {log} from "./config/Logger";
+import { KompositionRoutes } from "./routes/komposition.routes";
 
 const server = new hapi.Server();
 
@@ -13,5 +14,7 @@ server.start((err) => {
     if (err) {
         throw err;
     }
+    // log.infoc(() => `Server running at: ${server.info.uri}`);
+    // tslint:disable-next-line:no-console
     console.log(`Server running at: ${server.info.uri}`);
 });
