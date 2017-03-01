@@ -13,13 +13,14 @@
         "removeComments": true,
         "noLib": false,
         "preserveConstEnums": true,
-        "suppressImplicitAnyIndexErrors": true
+        "suppressImplicitAnyIndexErrors": true,
+        "rootDir": "src",
+        "outDir": "src"
     },
     "include": [
-        "**/*"
+        "src/**/*"
     ],
     "exclude": [
-        "node_modules",
-        "typings"
+        "node_modules"
     ]
 }

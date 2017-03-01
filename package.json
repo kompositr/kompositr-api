@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "gulp lint && tsc && node app.js",
+    "start": "gulp lint && tsc && node src/lib/app.js",
     "test": "gulp lint && gulp build-app && gulp test"
   },
   "dependencies": {

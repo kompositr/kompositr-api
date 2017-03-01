@@ -1,4 +1,4 @@
-import { Statement } from "../../entities/statement";
+import { Statement } from "../../lib/entities/statement";
 
 describe("Statement tokenization", () => {
     let statement;
