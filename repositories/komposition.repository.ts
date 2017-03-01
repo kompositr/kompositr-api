@@ -1,71 +1,71 @@
+import { Komposition } from "../entities/komposition";
+import { datastore } from "../typings/datastore";
 import { BaseRepository } from "./base.repository";
-import { datastore } from "../entities/datastore"
-import { Komposition } from "../entities/komposition"
-
 import IEntity = datastore.IEntity;
-import * as Promise from "bluebird"
-import * as moment from "moment"
+import * as Promise from "bluebird";
+import * as moment from "moment";
 
 export class KompositionRespository extends BaseRepository {
 
-    read(id) {
+    public read(id): Promise {
         const key = this.ds.key([this.kind, parseInt(id, 10)]);
-        let start = moment();
+        const start = moment();
         return this.ds.getAsync(key)
             .then((entity, err) => {
-                if (err) throw err;
-                let timeMs = moment.duration(moment().diff(start)).asMilliseconds();
+                if (err) { throw err; }
+                const timeMs = moment.duration(moment().diff(start)).asMilliseconds();
+                // this.log.debugc(() => "duration: " + timeMs);
+                // tslint:disable-next-line:no-console
                 console.log("duration: " + timeMs);
-                return entity
+                return entity;
             });
     }
 
-    readByName(name: string): Promise {
-        let query = this.ds.createQuery(this.kind);
-        query.filter('name', name);
+    public readByName(name: string): Promise {
+        const query = this.ds.createQuery(this.kind);
+        query.filter("name", name);
         return this.ds.runQueryAsync(query)
-            .then(function (entities, err) {
+            .then((entities, err) => {
                 if (err) {
+                    // this.log.errorc(() => err);
+                // tslint:disable-next-line:no-console
                     console.log(err);
                     throw err;
                 }
-                return entities
-            });
-    }
-
-    list(): Promise {
-        const q = this.ds.createQuery([this.kind])
-            .order('name');
-
-        return this.ds.runQueryAsync(q)
-            .then((entities, err) => {
-                if (err) throw err;
                 return entities;
             });
     }
 
-    create(data: Komposition): Promise {
+    public list(): Promise {
+        const q = this.ds.createQuery([this.kind])
+            .order("name");
+
+        return this.ds.runQueryAsync(q)
+            .then((entities, err) => {
+                if (err) { throw err; }
+                return entities;
+            });
+    }
+
+    public create(data: Komposition): Promise {
         return this.update(null, data);
     }
 
-    update(id: string, data: Komposition): Promise {
+    public update(id: string, data: Komposition): Promise {
         let key;
-        if (id)
+        if (id) {
             key = this.ds.key([this.kind, parseInt(id, 10)]);
-        else
+        } else {
             key = this.ds.key(this.kind);
+        }
 
-        const entity = {
-            key: key,
-            data: data
-        };
+        const entity = { key, data };
 
         return this.ds.saveAsync(entity)
             .then((err) => {
-                if (err) throw err;
+                if (err) { throw err; }
                 data.id = entity.key.id;
                 return data;
-            })
+            });
     }
-
 }
