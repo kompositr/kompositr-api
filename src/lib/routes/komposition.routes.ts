@@ -1,10 +1,10 @@
 import * as gcloudDatastore from "@google-cloud/datastore";
-import { KompositionRespository } from "../repositories/komposition.repository";
+import { KompositionRepository } from "../repositories/komposition.repository";
 
 export class KompositionRoutes {
     public routes: any[];
     constructor() {
-        const repo = new KompositionRespository("Komposition", gcloudDatastore);
+        const repo = new KompositionRepository("Komposition", gcloudDatastore);
         this.routes = [{
             method: "GET",
             path: "/kompositions/",

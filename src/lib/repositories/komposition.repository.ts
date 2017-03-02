@@ -5,7 +5,7 @@ import IEntity = datastore.IEntity;
 import * as Promise from "bluebird";
 import * as moment from "moment";
 
-export class KompositionRespository extends BaseRepository {
+export class KompositionRepository extends BaseRepository {
 
     public read(id): Promise {
         const key = this.ds.key([this.kind, parseInt(id, 10)]);
