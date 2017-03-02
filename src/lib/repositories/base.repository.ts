@@ -14,4 +14,20 @@ export class BaseRepository {
         }));
         // this.log = log;
     }
+
+    protected toDatastore(obj, nonIndexed = null) {
+        nonIndexed = nonIndexed || [];
+        const results = [];
+        Object.keys(obj).forEach((k) => {
+            if (obj[k] === undefined) {
+                return;
+            }
+            results.push({
+                excludeFromIndexes: nonIndexed.indexOf(k) !== -1,
+                name: k,
+                value: obj[k]
+            });
+        });
+        return results;
+    }
 }

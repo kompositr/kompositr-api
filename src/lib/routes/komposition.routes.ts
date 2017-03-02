@@ -32,6 +32,24 @@ export class KompositionRoutes {
                         reply(results);
                     });
             }
+        }, {
+            method: ["POST"],
+            path: "/kompositions/",
+            handler(request, reply) {
+                repo.create(request.payload)
+                    .then((results) => {
+                        reply(results);
+                    });
+            }
+        }, {
+            method: ["PUT"],
+            path: "/kompositions/{id}",
+            handler(request, reply) {
+                repo.update(request.params.id, request.payload)
+                    .then((results) => {
+                        reply(results);
+                    });
+            }
         }];
 
     }

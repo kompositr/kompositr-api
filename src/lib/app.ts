@@ -1,7 +1,7 @@
 "use strict";
 
 import * as hapi from "hapi";
-// import {log} from "./config/Logger";
+// import {log} from "./config/logging";
 import { KompositionRoutes } from "./routes/komposition.routes";
 
 const server = new hapi.Server();

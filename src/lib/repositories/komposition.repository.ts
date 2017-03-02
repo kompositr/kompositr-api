@@ -28,7 +28,7 @@ export class KompositionRespository extends BaseRepository {
             .then((entities, err) => {
                 if (err) {
                     // this.log.errorc(() => err);
-                // tslint:disable-next-line:no-console
+                    // tslint:disable-next-line:no-console
                     console.log(err);
                     throw err;
                 }
@@ -54,17 +54,28 @@ export class KompositionRespository extends BaseRepository {
     public update(id: string, data: Komposition): Promise {
         let key;
         if (id) {
+            // tslint:disable-next-line:no-console
+            console.log("id was provided, so should be updating");
             key = this.ds.key([this.kind, parseInt(id, 10)]);
         } else {
             key = this.ds.key(this.kind);
         }
 
-        const entity = { key, data };
+        const entity = { key, data: this.toDatastore(data, ["action.type"]) };
+        // tslint:disable-next-line:no-console
+        console.log("entity is: " + JSON.stringify(entity));
 
         return this.ds.saveAsync(entity)
             .then((err) => {
-                if (err) { throw err; }
+                if (err) {
+                    // tslint:disable-next-line:no-console
+                    console.log(JSON.stringify(err));
+                    // throw err;
+                }
                 data.id = entity.key.id;
+                // tslint:disable-next-line:no-console
+                console.log(data);
+
                 return data;
             });
     }
