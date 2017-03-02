@@ -7,6 +7,7 @@ import * as moment from "moment";
 
 export class KompositionRepository extends BaseRepository {
 
+
     public read(id): Promise {
         const key = this.ds.key([this.kind, parseInt(id, 10)]);
         const start = moment();

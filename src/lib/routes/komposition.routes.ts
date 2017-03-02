@@ -1,6 +1,7 @@
 import * as gcloudDatastore from "@google-cloud/datastore";
 import { KompositionRepository } from "../repositories/komposition.repository";
 
+
 export class KompositionRoutes {
     public routes: any[];
     constructor() {
