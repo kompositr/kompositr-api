@@ -1,5 +1,6 @@
 import * as gcloudDatastore from "@google-cloud/datastore";
 import { KompositionRespository } from "../repositories/komposition.repository";
+import * as KompositionValidator from "../validators/komposition.validator";
 
 export class KompositionRoutes {
     public routes: any[];
@@ -33,6 +34,11 @@ export class KompositionRoutes {
                     });
             }
         }, {
+            config: {
+                validate: {
+                    payload: KompositionValidator.updateKomposition
+                }
+            },
             method: ["POST"],
             path: "/kompositions/",
             handler(request, reply) {
@@ -42,6 +48,11 @@ export class KompositionRoutes {
                     });
             }
         }, {
+            config: {
+                validate: {
+                    payload: KompositionValidator.updateKomposition
+                }
+            },
             method: ["PUT"],
             path: "/kompositions/{id}",
             handler(request, reply) {
