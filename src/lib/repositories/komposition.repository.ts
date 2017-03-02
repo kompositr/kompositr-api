@@ -37,8 +37,7 @@ export class KompositionRespository extends BaseRepository {
     }
 
     public list(): Promise {
-        const q = this.ds.createQuery([this.kind])
-            .order("name");
+        const q = this.ds.createQuery([this.kind]);
 
         return this.ds.runQueryAsync(q)
             .then((entities, err) => {
