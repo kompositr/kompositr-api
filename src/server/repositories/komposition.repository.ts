@@ -5,31 +5,27 @@ import IEntity = datastore.IEntity;
 import * as Promise from "bluebird";
 import * as moment from "moment";
 
-export class KompositionRespository extends BaseRepository {
+export class KompositionRepository extends BaseRepository {
 
     public read(id): Promise {
-        const key = this.ds.key([this.kind, parseInt(id, 10)]);
+        const key = this.ds.key([this.config.kind, parseInt(id, 10)]);
         const start = moment();
         return this.ds.getAsync(key)
             .then((entity, err) => {
                 if (err) { throw err; }
                 const timeMs = moment.duration(moment().diff(start)).asMilliseconds();
-                // this.log.debugc(() => "duration: " + timeMs);
-                // tslint:disable-next-line:no-console
-                console.log("duration: " + timeMs);
+                this.log.debugc(() => "duration: " + timeMs);
                 return entity;
             });
     }
 
     public readByName(name: string): Promise {
-        const query = this.ds.createQuery(this.kind);
+        const query = this.ds.createQuery(this.config.kind);
         query.filter("name", name);
         return this.ds.runQueryAsync(query)
             .then((entities, err) => {
                 if (err) {
-                    // this.log.errorc(() => err);
-                    // tslint:disable-next-line:no-console
-                    console.log(err);
+                    this.log.errorc(() => err);
                     throw err;
                 }
                 return entities;
@@ -37,7 +33,7 @@ export class KompositionRespository extends BaseRepository {
     }
 
     public list(): Promise {
-        const q = this.ds.createQuery([this.kind]);
+        const q = this.ds.createQuery([this.config.kind]);
 
         return this.ds.runQueryAsync(q)
             .then((entities, err) => {
@@ -53,27 +49,22 @@ export class KompositionRespository extends BaseRepository {
     public update(id: string, data: Komposition): Promise {
         let key;
         if (id) {
-            // tslint:disable-next-line:no-console
-            console.log("id was provided, so should be updating");
-            key = this.ds.key([this.kind, parseInt(id, 10)]);
+            this.log.infoc(() => "id was provided, so should be updating");
+            key = this.ds.key([this.config.kind, parseInt(id, 10)]);
         } else {
-            key = this.ds.key(this.kind);
+            key = this.ds.key(this.config.kind);
         }
 
         const entity = { key, data: this.toDatastore(data, ["action.type"]) };
-        // tslint:disable-next-line:no-console
-        console.log("entity is: " + JSON.stringify(entity));
+        this.log.infoc(() => "entity is: " + JSON.stringify(entity));
 
         return this.ds.saveAsync(entity)
             .then((err) => {
                 if (err) {
-                    // tslint:disable-next-line:no-console
-                    console.log(JSON.stringify(err));
+                    this.log.infoc(() => JSON.stringify(err));
                     // throw err;
                 }
                 data.id = entity.key.id;
-                // tslint:disable-next-line:no-console
-                console.log(data);
 
                 return data;
             });

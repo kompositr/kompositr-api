@@ -10,9 +10,9 @@ var tsProject = tsc.createProject("tsconfig.json");
 
 gulp.task("lint", () => {
     return gulp.src([
-        "src/**/**.ts",
+        "src/server/**/**.ts",
         "!node_modules/**",
-        "!src/lib/typings/**"
+        "!src/server/typings/**"
     ])
         .pipe(tslint({ formatter: "verbose" }))
         .pipe(tslint.report({
@@ -30,18 +30,18 @@ gulp.task("build-app", () => {
 });
 
 gulp.task('pre-test', function () {
-    return gulp.src(['src/**/*.js', '!node_modules', '!src/test/**'])
-       // .pipe(istanbul({ includedUntested: true }))
-        // .pipe(istanbul())
-        // .pipe(istanbul.hookRequire())
+    return gulp.src(['src/server/**/*.js', '!node_modules', '!src/test/**'])
+    // .pipe(istanbul({ includedUntested: true }))
+    // .pipe(istanbul())
+    // .pipe(istanbul.hookRequire())
 });
 
 gulp.task("test", ['pre-test'], () => {
     return gulp.src('src/test/**/*.test.js')
         .pipe(jasmine())
-        // .pipe(istanbul.writeReports({
-        //     dir: './build/unit-test-coverage',
-        //     reporters: ['lcov'],
-        //     reportOpts: { dir: './build/unit-test-coverage' }
-        // }));
+    // .pipe(istanbul.writeReports({
+    //     dir: './build/unit-test-coverage',
+    //     reporters: ['lcov'],
+    //     reportOpts: { dir: './build/unit-test-coverage' }
+    // }));
 });

@@ -1,0 +1,11 @@
+{
+    "Komposition": {
+        "dbConfig": {
+            "kind": "Komposition",
+            "projectId": "kompositr"
+        }
+    },
+    "Server": {
+        "port": 8080
+    }
+}

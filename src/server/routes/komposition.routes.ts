@@ -1,11 +1,11 @@
 import * as gcloudDatastore from "@google-cloud/datastore";
-import { KompositionRespository } from "../repositories/komposition.repository";
+import { IRouteConfiguration } from "@types/hapi";
+import { KompositionRepository } from "../repositories/komposition.repository";
 import * as KompositionValidator from "../validators/komposition.validator";
 
 export class KompositionRoutes {
-    public routes: any[];
-    constructor() {
-        const repo = new KompositionRespository("Komposition", gcloudDatastore);
+    public readonly routes: IRouteConfiguration[];
+    constructor(private repo: KompositionRepository) {
         this.routes = [{
             method: "GET",
             path: "/kompositions/",
@@ -30,7 +30,7 @@ export class KompositionRoutes {
             handler(request, reply) {
                 repo.readByName(request.params.name)
                     .then((results) => {
-                        reply(results);
+                        reply(results.data);
                     });
             }
         }, {
@@ -44,7 +44,7 @@ export class KompositionRoutes {
             handler(request, reply) {
                 repo.create(request.payload)
                     .then((results) => {
-                        reply(results);
+                        reply(results).header("Location", "/kompositions/" + results.id);
                     });
             }
         }, {
@@ -58,7 +58,7 @@ export class KompositionRoutes {
             handler(request, reply) {
                 repo.update(request.params.id, request.payload)
                     .then((results) => {
-                        reply(results);
+                        reply(results).header("Location", "/kompositions/" + results.id);
                     });
             }
         }];
