@@ -8,6 +8,7 @@ COPY package.json /usr/src/app/
 RUN npm install
 
 # Bundle app source
+COPY config /usr/src/app
 COPY src/server /usr/src/app
 
 EXPOSE 8080
