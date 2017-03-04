@@ -1,9 +1,10 @@
 FROM node:boron
-RUN mkdir -p /app
-WORKDIR /app
-COPY package.json /app
+RUN mkdir -p /kompositr/src
+WORKDIR /kompositr/src
+COPY package.json /kompositr
 RUN npm install
-COPY config /app/config
-COPY src/server /app
+COPY config /kompositr/src/config
+COPY src/server /kompositr/src/server
+COPY src/app /kompositr/src/app
 EXPOSE 8080
-CMD [ "node", "/app/index.js" ]
+CMD [ "node", "/kompositr/src/server/index.js" ]
