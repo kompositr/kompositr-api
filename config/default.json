@@ -2,7 +2,8 @@
     "Komposition": {
         "dbConfig": {
             "kind": "Komposition",
-            "projectId": "kompositr"
+            "projectId": "kompositr",
+            "keyFilename": "./config/ds-key.json"
         }
     },
     "Server": {
