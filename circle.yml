@@ -13,7 +13,6 @@ dependencies:
   pre:
     - npm install -g typescript gulp
     - npm install
-    - tsc
     - npm test
     - sudo /opt/google-cloud-sdk/bin/gcloud --quiet components update
     - sudo /opt/google-cloud-sdk/bin/gcloud --quiet components update kubectl
@@ -35,5 +34,5 @@ deployment:
   prod:
     branch: master
     commands:
-      - chmod +x ./deploy.sh
-      - ./deploy.sh
+      - chmod +x ./scripts/*.sh
+      - ./scripts/deploy.sh

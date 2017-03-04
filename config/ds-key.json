@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "kompositr",
+  "private_key_id": "b5e0d432a04576ed4e8fdfe8388e8d220dfcd3b9",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDktiChrGMHeRg6\nQwjngX88F8uP10cTyA3g7/JCTGoC13sMfRSE++bl8O1xHmrTUbzdzj2/SQ4l+izc\nljVpbjgdiJJqNOLgGITnQCMIRYOVzyjiZ3NaB2w3XZHmLZlFTNDG7sy5W8/DF97C\n/ys4BOc5A+3j+hrEMESNdN2V0Rkz3D9JAKXHx8l3W2Cmen5sa6vbFnpcpYIVbHKt\n2D+iDHpsMZ3uU7qZb8Dz3n1Aicioa2EwgT3MTsiAhVty0r2trsTBz8Noj6j8SFDx\n4+dcp39cdyQUhqIFvSha6eorra4GoQv5V1WMBW/Pm0djw72H1uD51qRwtcepMMFb\nwbom41v/AgMBAAECggEAAyJDvDNif/22yUWV36Y0mhwxW901Sh4ZopVnGmV1pmhR\ndVBZcaEJ/uiYOE6UZCTgk6F50x8rJHYTG0qrnLA38J+ocfAbk7qCR7DnSfu529mk\n08VbHUawwulzUFYbnYl56t/myjtp02CGWuGoM/JNQMi+/7qzlzCaH94UEzN0RvOd\nALVPmJzbt3Cz06D6ebzp9LLtlZJovHREdwJFJG3z3hPY71vCjhmb0WvLndIdGp+z\nt7p9zDnlWvtJYhAPJKl8ghglWpNTrQ24yWDMB0LuPpceK8/5O1eiEv93wGMYIBW2\nVhNrPhXg/0dCIaJTo6/ZVSBKzzP2+Kz19Iccu6k20QKBgQD0fLAsDyhYJ7MWNY7a\nojOhLN/QQbyG/T/7rQRslh4skG9BfPXs1gh/BqTOUh5UVutsYxnHpmBcFvoh3MLO\na6cL7NuhfBtC/LLPMA7UiFZcpQ54C4cJn0wH2KRA1d/OQjEk0C2/1xLdIuTdjEkc\nqlkmMrd7d9lCtt/vYv78o1aJdQKBgQDve0NGbc2ICES49PeVVPDcCcGzp72PqLUK\nT0yng+vwWCJtxh8cfBZRmPPUGdQZdAyv+dETTn/uulKs8XI6UBrGEKIv+M3XWdce\nzn6UPPPFWPHczak0P2y7aVDZ1v0NCy7JAMBM3j/ONgwa5+IIoTNRl1Xp1CaXAkym\nNyxuCrEtIwKBgCMnFnGPUF60fpRv6PVYoxHGkPuxp/jEywFV1DAEuZvwvH5vCDEg\naSJSgznDJuc7hCgWa6uAKZS0HQznX/8sDV2ylbW3UXglO1R89XTrkXdKqDTse2MP\ny2/JX3yPA9n1PHmtkRZnRygSj1Oniw+bEqxiWG1hQxTLlJEn67/JgHTNAoGBAIrj\n6UOagR5I9VpzsHeqOLrU6cOBIF6GEOF21lU9HIRbCTSzN+30RZlzZM55YFqWxJj3\nAPv6hhX1d+eXbJFHTg/bK8U4vmEMWMgkKKNeql6lVDikCmMj+bLDxMFif4amGq82\nwVCTgVveWqzsGVq56yKB67DeercP/VZVH25+wv0TAoGBAMw219kx3xM2v0NQCSv1\nZJT2ssNeJX01hw4p32ERyM65ySWvzQb1wTk40ExliKDN9mLs5ZMroJkdpAZHqFKS\nwkFnJAB+Azjfyvjd9BMen+XxjiQLjpHoFgQDhgg8kOTrb81sJAPoLbDg8lYchFBC\np8nTeNvXgNzT92q4v73VGUn0\n-----END PRIVATE KEY-----\n",
+  "client_email": "kompistr-api-datastore@kompositr.iam.gserviceaccount.com",
+  "client_id": "112335175274032276349",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/kompistr-api-datastore%40kompositr.iam.gserviceaccount.com"
+}
