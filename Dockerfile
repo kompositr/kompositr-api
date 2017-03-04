@@ -1,7 +1,9 @@
 FROM node:boron
-COPY package.json .
+RUN mkdir -p /app
+WORKDIR /app
+COPY package.json /app
 RUN npm install
-COPY config .
-COPY src/server .
+COPY config /app/config
+COPY src/server /app
 EXPOSE 8080
-CMD [ "node", "index.js" ]
+CMD [ "node", "/app/index.js" ]
