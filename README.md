@@ -8,9 +8,9 @@
 
 	ng server
 	
-	* Note.  In order for services to run locally, you must use a browser with disabled web security to ignore CORS.  
-	* For Chrome in Windows, append the following parameters when initializing:
-		* <path/to/chrome.exe> --user-data-dir="C:/Chrome dev session" --disable-web-security
+	- In order for services to run locally, you must use a browser with disabled web security to ignore CORS.  
+	- For Chrome in Windows, append the following parameters when initializing:
+		- <path/to/chrome.exe> --user-data-dir="C:/Chrome dev session" --disable-web-security
     
 ## How to build and run in a docker container locally
 
