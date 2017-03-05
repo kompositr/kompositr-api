@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-        "target": "es5",
+        "target": "es6",
         "sourceMap": true,
         "module": "commonjs",
         "moduleResolution": "node",
@@ -15,7 +15,11 @@
         "preserveConstEnums": true,
         "suppressImplicitAnyIndexErrors": true,
         "rootDir": "src",
-        "outDir": "src"
+        "outDir": "src",
+		"lib": [
+			"es2015",
+			"dom"
+		]
     },
     "include": [
         "src/**/*"
