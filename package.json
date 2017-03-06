@@ -21,7 +21,8 @@
     "mongoose": "^4.8.5",
     "reflect-metadata": "^0.1.10",
     "typescript-logging": "0.2.1",
-    "typings": "^2.1.0"
+    "typings": "^2.1.0",
+    "underscore": "^1.8.3"
   },
   "devDependencies": {
     "@types/jasmine": "^2.5.43",
