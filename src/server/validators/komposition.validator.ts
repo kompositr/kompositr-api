@@ -6,7 +6,8 @@ export const updateKomposition = Joi.object({
         name: Joi.string().trim().required(),
         type: Joi.string().trim().required()
     }).required(),
-    id: Joi.number().allow(null),
+    id: Joi.string().trim().allow(null),
+    name: Joi.string().trim().required(),
     statements: Joi.array().items(Joi.object({phrase: Joi.string().trim().required() })).required()
 });
 

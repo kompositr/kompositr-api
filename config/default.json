@@ -1,9 +1,8 @@
 {
     "Komposition": {
         "dbConfig": {
-            "kind": "Komposition",
-            "projectId": "kompositr",
-            "keyFilename": "./config/ds-key.json"
+            "host": "mongodb://api-user:k0mposit4@ds145369.mlab.com:45369/kompositr",
+            "collection": "kompositions"
         }
     },
     "Server": {

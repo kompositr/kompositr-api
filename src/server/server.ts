@@ -1,15 +1,15 @@
-import * as gcloud from "@google-cloud/datastore";
 import * as hapi from "hapi";
 import * as Inert from "inert";
 import {log} from "./logging/index";
-import { KompositionRepository } from "./repositories/komposition.repository";
+import { KompositionMongoRepository } from "./repositories/komposition.mongo.repo";
+// import { KompositionRepository } from "./repositories/komposition.repository";
 import { KompositionRoutes } from "./routes/komposition.routes";
 
 export function init(config: any): hapi.Server {
     const server = new hapi.Server();
 
     server.connection({ port: config.get("Server.port") });
-    const repo = new KompositionRepository(config.get("Komposition.dbConfig"), gcloud);
+    const repo = new KompositionMongoRepository(config.get("Komposition.dbConfig"));
     server.route(new KompositionRoutes(repo).routes);
 
     server.register(Inert, (err) => {

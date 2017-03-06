@@ -48,9 +48,13 @@ export module datastore {
         key(kind: string): IKey;
         key(key: Object[]): IKey;
         runQueryAsync(q: IQuery)
+        runQuery(q: IQuery)
         getAsync(key: IKey)
         saveAsync(entity: IEntity<TData>)
-    }
+        get(key: IKey)
+        save(entity: IEntity<TData>)
+        delete(key: IKey)
+   }
 
 
     export interface IDatasetOptions extends IAuthOptions {

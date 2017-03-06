@@ -9,6 +9,7 @@
   "dependencies": {
     "@google-cloud/datastore": "^0.7.0",
     "@types/hapi": "^16.0.0",
+    "@types/mongodb": "^2.1.41",
     "bluebird": "^3.4.7",
     "config": "^1.25.1",
     "hapi": "^16.1.0",
@@ -16,6 +17,8 @@
     "inversify": "^3.1.0",
     "joi": "^10.2.2",
     "moment": "^2.17.1",
+    "mongodb": "^2.2.24",
+    "mongoose": "^4.8.5",
     "reflect-metadata": "^0.1.10",
     "typescript-logging": "0.2.1",
     "typings": "^2.1.0"
